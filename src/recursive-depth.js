@@ -37,7 +37,6 @@ const { NotImplementedError } = require('../extensions/index.js');
   }
   }
 }
-const depthCalc = new DepthCalculator();
 module.exports = {
   DepthCalculator
 };
