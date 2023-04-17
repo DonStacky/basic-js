@@ -16,10 +16,11 @@ const { NotImplementedError } = require('../extensions/index.js');
   console.log(date)
   if (date === undefined) {
     return 'Unable to determine the time of year!';
-  } else if (!(typeof date === 'object') || !Date.parse(date) || !(date instanceof Date)) {
+  } else if (!(typeof date === 'object') || !Date.parse(date) || !(date instanceof Date == true) || Array.isArray(date) || date.hasOwnProperty('toString')) {
   console.log('Invalid date!')
-    return 'Invalid date!';
+    throw new Error('Invalid date!');
   } else {
+    console.log(Object.getOwnPropertyNames(date))
   let month = date.getMonth() + 1;
   if (month >= 3 && month <= 5) {
     return 'spring';
